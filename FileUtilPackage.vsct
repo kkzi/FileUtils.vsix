@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!--  This is the file that defines the actual layout and type of the commands.
+        It is divided in different sections (e.g. command definition, command
+        placement, ...), with each defining a specific set of properties.
+        See the comment before each section for more details about how to
+        use it. -->
+
+    <!--  The VSCT compiler (the tool that translates this file into the binary
+        format that VisualStudio will consume) has the ability to run a preprocessor
+        on the vsct file; this preprocessor is (usually) the C++ preprocessor, so
+        it is possible to define includes and macros with the same syntax used
+        in C++ files. Using this ability of the compiler here, we include some files
+        defining some of the constants that we will use inside the file. -->
+
+    <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
+    <Extern href="stdidcmd.h"/>
+
+    <!--This header contains the command ids for the menus provided by the shell. -->
+    <Extern href="vsshlids.h"/>
+
+    <!--The Commands section is where commands, menus, and menu groups are defined.
+      This section uses a Guid to identify the package that provides the command defined inside it. -->
+    <Commands package="guidFileUtil">
+        <Groups>
+            <Group guid="guidFileUtilCmdSet" id="FileUtilGroup" priority="0x0600">
+                <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_EDIT"/>
+            </Group>
+        </Groups>
+
+        <Buttons>
+            <Button guid="guidFileUtilCmdSet" id="NewItemCmdId" priority="0x0100" type="Button">
+                <Parent guid="guidFileUtilCmdSet" id="FileUtilGroup" />
+                <CommandFlag>CommandWellOnly</CommandFlag>
+                <Strings>
+                    <ButtonText>New Item</ButtonText>
+                    <CommandName>FileUtil.NewItem</CommandName>
+                    <ToolTipText>Create new file or dir</ToolTipText>
+                    <LocCanonicalName>.FileUtil.NewItem</LocCanonicalName>
+                </Strings>
+            </Button>
+            <Button guid="guidFileUtilCmdSet" id="AlignByCmdId" priority="0x0100" type="Button">
+                <Parent guid="guidFileUtilCmdSet" id="FileUtilGroup" />
+                <CommandFlag>CommandWellOnly</CommandFlag>
+                <Strings>
+                    <ButtonText>Align By</ButtonText>
+                    <CommandName>FileUtil.AlignBy</CommandName>
+                    <ToolTipText>Align by string</ToolTipText>
+                    <LocCanonicalName>.FileUtil.AlignBy</LocCanonicalName>
+                </Strings>
+            </Button>
+        </Buttons>
+
+        <Bitmaps>
+            <Bitmap guid="guidImages" href="Command\Resources\NewItemCmd.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+        </Bitmaps>
+    </Commands>
+
+    <KeyBindings>
+        <KeyBinding guid="guidFileUtilCmdSet" id="NewItemCmdId" editor="guidVSStd97" key1="N" mod1="Alt" />
+        <KeyBinding guid="guidFileUtilCmdSet" id="AlignByCmdId" editor="guidVSStd97" key1="VK_OEM_PLUS" mod1="Alt" />
+    </KeyBindings>
+
+
+    <Symbols>
+        <!-- This is the package guid. -->
+        <GuidSymbol name="guidFileUtil" value="{e4242fd4-6c82-4213-83bd-592a5903ad35}" />
+
+        <!-- This is the guid used to group the menu commands together -->
+        <GuidSymbol name="guidFileUtilCmdSet" value="{96d5b6c2-b20e-4bb4-872f-1f7dd49f16b2}">
+            <IDSymbol name="FileUtilGroup" value="0x1020" />
+            <IDSymbol name="NewItemCmdId" value="0x0100" />
+            <IDSymbol name="AlignByCmdId" value="0x0101" />
+        </GuidSymbol>
+
+        <GuidSymbol name="guidImages" value="{7668ffe9-36a9-410c-b2fb-3e7795bc8a7a}" >
+            <IDSymbol name="bmpPic1" value="1" />
+            <IDSymbol name="bmpPic2" value="2" />
+            <IDSymbol name="bmpPicSearch" value="3" />
+            <IDSymbol name="bmpPicX" value="4" />
+            <IDSymbol name="bmpPicArrows" value="5" />
+            <IDSymbol name="bmpPicStrikethrough" value="6" />
+        </GuidSymbol>
+    </Symbols>
+</CommandTable>

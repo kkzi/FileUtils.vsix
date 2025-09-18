@@ -1,0 +1,21 @@
+﻿<Window x:Class="FileUtil.AlignByDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Align By" Height="120" Width="320"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="32" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Name="InputText" Grid.Row="0" Grid.Column="0" Padding="0 4" Margin="10" VerticalAlignment="Center" Text="" />
+        <Button Name="Ok" Grid.Row="1" Grid.Column="0" Height="24" Padding="10 4" Margin="10 0" Content="OK" IsDefault="True" HorizontalAlignment="Right" Click="Ok_Click" />
+    </Grid>
+</Window>

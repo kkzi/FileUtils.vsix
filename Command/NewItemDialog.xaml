@@ -1,0 +1,30 @@
+﻿<Window x:Class="FileUtil.NewItemDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="New Item" Height="160" Width="Auto" MaxWidth="640"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition Height="32" />
+            <RowDefinition Height="64" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0"  Margin="10" Text="Location:" VerticalAlignment="Center" />
+        <TextBlock Name="DirPath" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 0 10 0" VerticalAlignment="Center" Text="" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="10" Text="Name:" VerticalAlignment="Center"  />
+        <TextBox Name="ItemName" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Padding="0 4" Margin="0 0 10 0" VerticalAlignment="Center" Text="" TextChanged="ItemName_TextChanged" />
+
+        <TextBlock Name="Message" Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="Auto" Text=""/>
+        <Button Name="Ok" Grid.Row="2" Grid.Column="2" Height="24" Padding="10 4" Margin="10 0" Content="OK" IsDefault="True" Click="OkButton_Click"/>
+    </Grid>
+</Window>
